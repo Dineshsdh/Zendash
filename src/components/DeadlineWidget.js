@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, ListGroup, Spinner, Badge } from 'react-bootstrap';
-import { Bell, Mail, AlertCircle, CheckCircle } from 'react-bootstrap-icons';
+import { Bell, Envelope, ExclamationTriangle, CheckCircle } from 'react-bootstrap-icons';
 
 function DeadlineWidget({ token }) {
   const [deadlines, setDeadlines] = useState([]);
