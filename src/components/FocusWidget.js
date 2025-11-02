@@ -70,18 +70,70 @@ function FocusWidget({ nextEvent }) {
   };
 
   return (
-    <Card className="shadow-sm border-0">
-      <Card.Header as="h5" className="bg-white border-0 d-flex align-items-center">
-        <Briefcase size={24} className="me-2" /> Focus Mode
+    <Card className="enhanced-card">
+      <Card.Header className="bg-transparent border-0 pb-0">
+        <div className="d-flex align-items-center">
+          <div className="icon-gradient-accent me-3">
+            <Target size={24} />
+          </div>
+          <div>
+            <h5 className="mb-0 fw-bold">Focus Mode</h5>
+            <p className="text-muted small mb-0">Distraction-free workspace</p>
+          </div>
+        </div>
       </Card.Header>
-      <Card.Body>
-        <Card.Text>
-          We found <Badge bg="primary">{tabs.length}</Badge> tabs
-          related to <strong>'{eventName}'</strong>.
-        </Card.Text>
-        <Button variant="primary" size="lg" onClick={onFocusClick} disabled={tabs.length === 0}>
-          Click to Focus
-        </Button>
+      <Card.Body className="pt-3">
+        {/* Statistics Grid */}
+        <div className="stats-grid">
+          <div className="stat-box">
+            <div className="stat-number">{tabs.length}</div>
+            <div className="stat-label">Related Tabs</div>
+          </div>
+          <div className="stat-box">
+            <div className="stat-number">{keywords.length}</div>
+            <div className="stat-label">Keywords</div>
+          </div>
+        </div>
+
+        {/* Focus Description */}
+        <div className="text-center mb-4 p-3 bg-light rounded-lg">
+          <Eye size={20} className="text-primary mb-2" />
+          <p className="mb-0">
+            We found <Badge bg="primary" className="fs-6 px-2 py-1">{tabs.length}</Badge> tabs related to
+            <strong> '{eventName}'</strong>
+          </p>
+          <p className="text-muted small mb-0">
+            Click below to organize them in a new window
+          </p>
+        </div>
+
+        {/* Enhanced Button */}
+        <div className="d-grid">
+          <Button
+            className="btn-gradient"
+            size="lg"
+            onClick={onFocusClick}
+            disabled={tabs.length === 0}
+          >
+            {tabs.length === 0 ? (
+              <>
+                <Layers size={18} className="me-2" />
+                No Related Tabs Found
+              </>
+            ) : (
+              <>
+                <Target size={18} className="me-2" />
+                Focus on {tabs.length} Tab{tabs.length !== 1 ? 's' : ''}
+              </>
+            )}
+          </Button>
+        </div>
+
+        {tabs.length === 0 && (
+          <p className="text-muted text-center mt-3 small mb-0">
+            No tabs match your current event. Try opening relevant pages first.
+          </p>
+        )}
       </Card.Body>
     </Card>
   );
