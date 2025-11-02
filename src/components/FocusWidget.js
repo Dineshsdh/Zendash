@@ -74,7 +74,7 @@ function FocusWidget({ nextEvent }) {
       <Card.Header className="bg-transparent border-0 pb-0">
         <div className="d-flex align-items-center">
           <div className="icon-gradient-accent me-3">
-            <Target size={24} />
+            <Bullseye size={24} />
           </div>
           <div>
             <h5 className="mb-0 fw-bold">Focus Mode</h5>
