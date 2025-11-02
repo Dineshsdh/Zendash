@@ -122,7 +122,7 @@ function FocusWidget({ nextEvent }) {
               </>
             ) : (
               <>
-                <Target size={18} className="me-2" />
+                <Bullseye size={18} className="me-2" />
                 Focus on {tabs.length} Tab{tabs.length !== 1 ? 's' : ''}
               </>
             )}
