@@ -68,7 +68,7 @@ function DeadlineWidget({ token }) {
       >
         <div className="d-flex align-items-start">
           <div className="icon-gradient-secondary me-3" style={{ minWidth: '40px', height: '40px' }}>
-            <Mail size={20} />
+            <Envelope size={20} />
           </div>
           <div className="flex-grow-1">
             <div className="d-flex align-items-center justify-content-between mb-2">
