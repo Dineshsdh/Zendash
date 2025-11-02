@@ -91,11 +91,19 @@ function CommuteWidget({ nextEvent }) {
   };
 
   return (
-    <Card className="shadow-sm border-0">
-      <Card.Header as="h5" className="bg-white border-0 d-flex align-items-center">
-        <CloudSun size={24} className="me-2" /> What's Next
+    <Card className="enhanced-card">
+      <Card.Header className="bg-transparent border-0 pb-0">
+        <div className="d-flex align-items-center">
+          <div className="icon-gradient me-3">
+            <CloudSun size={24} />
+          </div>
+          <div>
+            <h5 className="mb-0 fw-bold">What's Next</h5>
+            <p className="text-muted small mb-0">Your upcoming schedule</p>
+          </div>
+        </div>
       </Card.Header>
-      <Card.Body>
+      <Card.Body className="pt-3">
         {renderContent()}
       </Card.Body>
     </Card>
