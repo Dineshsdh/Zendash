@@ -9,7 +9,8 @@ import { CloudSun, MapPin, Clock, Umbrella } from 'react-bootstrap-icons';
 // We are just displaying the event info.
 const DUMMY_COMMUTE = {
   time: "35 mins",
-  weather: "expect rain"
+  weather: "expect rain",
+  traffic: "moderate"
 };
 
 function CommuteWidget({ nextEvent }) {
