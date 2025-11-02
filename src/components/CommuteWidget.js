@@ -50,7 +50,7 @@ function CommuteWidget({ nextEvent }) {
         {/* Location with icon */}
         {nextEvent.location && (
           <div className="d-flex align-items-center mb-3 p-3 bg-light rounded-lg">
-            <MapPin size={20} className="text-primary me-2" />
+            <GeoAlt size={20} className="text-primary me-2" />
             <span>{nextEvent.location}</span>
           </div>
         )}
