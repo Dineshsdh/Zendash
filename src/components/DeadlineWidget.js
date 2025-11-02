@@ -89,11 +89,26 @@ function DeadlineWidget({ token }) {
   };
 
   return (
-    <Card className="shadow-sm border-0">
-      <Card.Header as="h5" className="bg-white border-0 d-flex align-items-center">
-        <Bell size={24} className="me-2" /> Smart Deadlines
+    <Card className="enhanced-card">
+      <Card.Header className="bg-transparent border-0 pb-0">
+        <div className="d-flex align-items-center justify-content-between">
+          <div className="d-flex align-items-center">
+            <div className="icon-gradient me-3">
+              <Bell size={24} />
+            </div>
+            <div>
+              <h5 className="mb-0 fw-bold">Smart Deadlines</h5>
+              <p className="text-muted small mb-0">Important email alerts</p>
+            </div>
+          </div>
+          {!loading && (
+            <Badge bg={deadlines.length > 0 ? "danger" : "success"} className="fs-6">
+              {deadlines.length}
+            </Badge>
+          )}
+        </div>
       </Card.Header>
-      <ListGroup variant="flush">
+      <ListGroup variant="flush" className="border-0">
         {renderContent()}
       </ListGroup>
     </Card>
