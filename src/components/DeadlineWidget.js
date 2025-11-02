@@ -79,7 +79,7 @@ function DeadlineWidget({ token }) {
               Keywords: due, invoice, or trial found in unread message
             </p>
             <div className="d-flex align-items-center text-muted small">
-              <AlertCircle size={14} className="me-1" />
+              <ExclamationTriangle size={14} className="me-1" />
               <span>Requires attention</span>
             </div>
           </div>
