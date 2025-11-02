@@ -4,7 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Import our three widget components
+// Import theme styles
+import './styles/ThemeStyles.css';
+
+// Import our components
+import EnhancedHeader from './components/EnhancedHeader';
 import CommuteWidget from './components/CommuteWidget';
 import FocusWidget from './components/FocusWidget';
 import DeadlineWidget from './components/DeadlineWidget';
