@@ -1,0 +1,295 @@
+/* ThemeStyles.css - CSS Custom Properties for Light/Dark Themes */
+
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-muted: #666666;
+  --border-color: #e9ecef;
+
+  /* Light Mode Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea, #764ba2);
+  --gradient-secondary: linear-gradient(135deg, #4facfe, #00f2fe);
+  --gradient-accent: linear-gradient(135deg, #f093fb, #f5576c);
+  --gradient-header: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4facfe 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.25);
+
+  /* Animation Timing */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Colors */
+  --bg-primary: #1a1a2e;
+  --bg-card: #16213e;
+  --text-primary: #eeeeee;
+  --text-muted: #a8b2c1;
+  --border-color: #2d3561;
+
+  /* Dark Mode Gradients */
+  --gradient-primary: linear-gradient(135deg, #16213e, #0f3460, #533483);
+  --gradient-secondary: linear-gradient(135deg, #0f3460, #16213e);
+  --gradient-accent: linear-gradient(135deg, #533483, #e94560);
+  --gradient-header: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #533483 100%);
+
+  /* Dark Mode Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* Global Theme Application */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  min-height: 100vh;
+}
+
+/* Enhanced Card Styles */
+.enhanced-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.enhanced-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Icon Gradient Backgrounds */
+.icon-gradient {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon-gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.icon-gradient-accent {
+  background: var(--gradient-accent);
+}
+
+/* Enhanced Button Styles */
+.btn-gradient {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-gradient:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+.btn-gradient:active {
+  transform: scale(0.98);
+}
+
+/* Header Styles */
+.enhanced-header {
+  background: var(--gradient-header);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.enhanced-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.enhanced-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Statistics Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.stat-box {
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+[data-theme="dark"] .stat-box {
+  background: rgba(79, 172, 254, 0.1);
+  border: 1px solid rgba(79, 172, 254, 0.2);
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Alert Box Styling */
+.alert-gradient {
+  background: var(--gradient-secondary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Typography Enhancements */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Loading States */
+.loading-spinner {
+  color: var(--text-primary);
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enhanced-header {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.slide-in {
+  animation: slideIn 0.4s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}
