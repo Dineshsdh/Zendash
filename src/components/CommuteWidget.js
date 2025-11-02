@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { CloudSun, MapPin, Clock, Umbrella } from 'react-bootstrap-icons';
+import { CloudSun, GeoAlt, Clock, Umbrella } from 'react-bootstrap-icons';
 
 // HACKATHON SHORTCUTS:
 // We aren't calling the backend for commute time in this step.
