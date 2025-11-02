@@ -35,17 +35,55 @@ function DeadlineWidget({ token }) {
 
   const renderContent = () => {
     if (loading) {
-      return <ListGroup.Item><Spinner size="sm" /></ListGroup.Item>;
-    }
-    if (deadlines.length === 0) {
-      return <ListGroup.Item className="text-muted">Inbox is clear!</ListGroup.Item>;
+      return (
+        <ListGroup.Item className="text-center py-4">
+          <Spinner animation="border" className="loading-spinner mb-2" />
+          <div className="text-muted">Checking your inbox...</div>
+        </ListGroup.Item>
+      );
     }
 
-    // For the demo, we just list "Urgent" items.
-    return deadlines.map(msg => (
-      <ListGroup.Item key={msg.id}>
-        <strong>Urgent Email Found</strong>
-        <small className="d-block text-muted">Subject: (e.g., Invoice Due)</small>
+    if (deadlines.length === 0) {
+      return (
+        <ListGroup.Item className="text-center py-4">
+          <CheckCircle size={32} className="text-success mb-2" />
+          <div className="text-success fw-semibold">All Clear!</div>
+          <div className="text-muted small">No urgent deadlines detected</div>
+        </ListGroup.Item>
+      );
+    }
+
+    // Enhanced deadline items
+    return deadlines.map((msg, index) => (
+      <ListGroup.Item
+        key={msg.id}
+        className="border-0 border-bottom hover-bg-light transition-all"
+        style={{
+          padding: '16px',
+          borderLeft: `4px solid var(--gradient-primary)`,
+          margin: '4px 0',
+          borderRadius: '8px',
+          backgroundColor: 'var(--bg-card)'
+        }}
+      >
+        <div className="d-flex align-items-start">
+          <div className="icon-gradient-secondary me-3" style={{ minWidth: '40px', height: '40px' }}>
+            <Mail size={20} />
+          </div>
+          <div className="flex-grow-1">
+            <div className="d-flex align-items-center justify-content-between mb-2">
+              <h6 className="mb-0 fw-semibold">Urgent Email Detected</h6>
+              <Badge bg="danger" className="pulse">#{index + 1}</Badge>
+            </div>
+            <p className="mb-2 small text-muted">
+              Keywords: due, invoice, or trial found in unread message
+            </p>
+            <div className="d-flex align-items-center text-muted small">
+              <AlertCircle size={14} className="me-1" />
+              <span>Requires attention</span>
+            </div>
+          </div>
+        </div>
       </ListGroup.Item>
     ));
   };
