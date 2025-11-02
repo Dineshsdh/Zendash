@@ -83,36 +83,50 @@ function App() {
 
   // --- Render The Main Dashboard ---
   return (
-    <Container fluid className="p-4" style={{ backgroundColor: '#f8f9fa', minHeight: '100vh' }}>
-      
-      <Row>
-        <Col md={12}>
-          <h1 className="display-4">Good Morning!</h1>
-          <p className="lead">Your ZenDash is ready.</p>
-        </Col>
-      </Row>
+    <Container fluid className="p-4" style={{ minHeight: '100vh' }}>
+      {/* Enhanced Header with Theme Toggle */}
+      <EnhancedHeader />
 
-      <Row className="mt-3">
+      {/* Modern Grid Layout using CSS Grid */}
+      <div
+        className="dashboard-grid"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '2fr 1fr',
+          gap: '20px',
+          marginTop: '30px'
+        }}
+      >
         {/* === LEFT COLUMN === */}
-        <Col md={8}>
-          
-          {/* We pass the event data down as a prop */}
-          <CommuteWidget nextEvent={nextEvent} />
-          
-          <div className="mt-3" /> {/* Spacer */}
-          
-          {/* We pass the event data down as a prop */}
-          <FocusWidget nextEvent={nextEvent} />
+        <div className="left-column d-flex flex-column gap-3">
+          {/* Commute Widget */}
+          <div className="slide-in" style={{ animationDelay: '0.1s' }}>
+            <CommuteWidget nextEvent={nextEvent} />
+          </div>
 
-        </Col>
+          {/* Focus Widget */}
+          <div className="slide-in" style={{ animationDelay: '0.2s' }}>
+            <FocusWidget nextEvent={nextEvent} />
+          </div>
+        </div>
 
         {/* === RIGHT COLUMN === */}
-        <Col md={4}>
-          {/* We pass the token down so it can fetch email */}
-          <DeadlineWidget token={token} />
-        </Col>
-      </Row>
-      
+        <div className="right-column">
+          {/* Deadline Widget */}
+          <div className="slide-in" style={{ animationDelay: '0.3s' }}>
+            <DeadlineWidget token={token} />
+          </div>
+        </div>
+      </div>
+
+      {/* Responsive Grid Override */}
+      <style>{`
+        @media (max-width: 768px) {
+          .dashboard-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </Container>
   );
 }
