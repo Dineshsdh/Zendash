@@ -60,15 +60,25 @@ function App() {
   // --- Render Loading / Error States ---
   if (loading) {
     return (
-      <Container fluid className="d-flex vh-100 justify-content-center align-items-center" style={{ backgroundColor: '#f8f9fa' }}>
-        <Spinner animation="border" />
-        <span className="ms-3 lead">Loading ZenDash...</span>
+      <Container fluid className="d-flex vh-100 justify-content-center align-items-center">
+        <div className="text-center">
+          <Spinner animation="border" className="loading-spinner mb-3" />
+          <div className="lead">Loading ZenDash...</div>
+        </div>
       </Container>
     );
   }
 
   if (error) {
-    return <Container className="p-4"><Alert variant="danger">{error}</Alert></Container>;
+    return (
+      <Container className="p-4">
+        <div className="enhanced-card p-4 border-danger">
+          <Alert variant="danger" className="mb-0">
+            <strong>Error:</strong> {error}
+          </Alert>
+        </div>
+      </Container>
+    );
   }
 
   // --- Render The Main Dashboard ---
