@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Badge } from 'react-bootstrap';
-import { Briefcase, Eye, Layers, Target } from 'react-bootstrap-icons';
+import { Briefcase, Eye, Layers, Bullseye } from 'react-bootstrap-icons';
 
 // A simple function to get keywords from a title
 const getKeywords = (title) => {
