@@ -1,8 +1,8 @@
 // src/components/DeadlineWidget.js
 
 import React, { useState, useEffect } from 'react';
-import { Card, ListGroup, Spinner } from 'react-bootstrap';
-import { Bell } from 'react-bootstrap-icons';
+import { Card, ListGroup, Spinner, Badge } from 'react-bootstrap';
+import { Bell, Mail, AlertCircle, CheckCircle } from 'react-bootstrap-icons';
 
 function DeadlineWidget({ token }) {
   const [deadlines, setDeadlines] = useState([]);
